@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="texto_icones">14sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--Tamanho dos botões-->
+    <dimen name="botao_entrar_width">120dp</dimen>
+    <dimen name="botao_entrar_height">48dp</dimen>
+    <dimen name="botao_cadastrar_width">120dp</dimen>
+    <dimen name="botao_cadastrar_height">48dp</dimen>
+</resources>
