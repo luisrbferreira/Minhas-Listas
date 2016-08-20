@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ff7043</color>
-    <color name="colorPrimaryDark">#BF360C</color>
-    <color name="colorAccent">#FF7043</color>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#004D40</color>
+    <color name="colorAccent">#009688</color>
 
     <!--Cor dos botões-->
-    <color name="corLinks">#FF7043</color>
+    <color name="corLinks">#009688</color>
     <color name="textoBotoes">#ffffff</color>
 
     <color name="black">#000000</color>
     <color name="grey">#E0E0E0</color>
+    <color name="teal">#E0F2F1</color>
 
     <!--BackgroundColor-->
     <color name="backgroundColor">#ffffff</color>
