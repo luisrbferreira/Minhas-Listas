@@ -45,7 +45,7 @@ public class RecuperarSenhaActivity extends AppCompatActivity {
 
     private void init() {
         toolbar.setTitle("Recuperação de Senha");
-        email = (AutoCompleteTextView) findViewById(R.id.email);
+        email = (AutoCompleteTextView) findViewById(R.id.email_recuperacao);
     }
 
     public void reset(View view) {
