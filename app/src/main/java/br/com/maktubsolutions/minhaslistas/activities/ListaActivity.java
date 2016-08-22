@@ -39,7 +39,7 @@ public class ListaActivity extends AppCompatActivity implements View.OnClickList
         fab = (FloatingActionButton) findViewById(R.id.fab_addItem);
         fab.setOnClickListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rv_users1);
+        recyclerView = (RecyclerView) findViewById(R.id.rv_itens);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);

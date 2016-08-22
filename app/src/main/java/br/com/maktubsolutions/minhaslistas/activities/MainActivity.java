@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_novaLista);
         fab.setOnClickListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rv_users);
+        recyclerView = (RecyclerView) findViewById(R.id.rv_listas);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
