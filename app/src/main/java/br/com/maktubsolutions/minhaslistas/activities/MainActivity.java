@@ -1,6 +1,5 @@
 package br.com.maktubsolutions.minhaslistas.activities;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new RecyclerAdapter(this, listas);
+        adapter = new RecyclerAdapter(this, listas, true);
         recyclerView.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();

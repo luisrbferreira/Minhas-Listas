@@ -1,25 +1,14 @@
 package br.com.maktubsolutions.minhaslistas.activities;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
@@ -28,14 +17,11 @@ import br.com.maktubsolutions.minhaslistas.adapter.RecyclerAdapter;
 
 public class ListaActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ArrayList listas = new ArrayList<>();
+    private ArrayList itens = new ArrayList<>();
     private RecyclerAdapter adapter;
     private RecyclerView recyclerView;
-    private EditText edt_itens;
-    private int edit_position;
-    private View view;
-    private Paint p = new Paint();
-    private AlertDialog.Builder alertDialog;
+    private EditText edt_item;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,21 +34,17 @@ public class ListaActivity extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Itens da lista");
 
-        initViews();
-    }
+        edt_item = (EditText)findViewById(R.id.edt_addItem);
 
-    protected void initViews() {
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_addItem);
+        fab = (FloatingActionButton) findViewById(R.id.fab_addItem);
         fab.setOnClickListener(this);
-
-        edt_itens = (EditText) findViewById(R.id.edt_addItem);
 
         recyclerView = (RecyclerView) findViewById(R.id.rv_users1);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new RecyclerAdapter(this, listas);
+        adapter = new RecyclerAdapter(this, itens, false);
         recyclerView.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();
@@ -70,21 +52,24 @@ public class ListaActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.fab_addItem:
-                if (!edt_itens.getText().toString().isEmpty()) {
-                    adapter.addItem(edt_itens.getText().toString());
-                } else {
-                    listas.set(edit_position, edt_itens.getText().toString());
-                    adapter.notifyDataSetChanged();
-                }
-                break;
+        if(!edt_item.getText().toString().isEmpty()){
+            adapter.addItem(edt_item.getText().toString());
+            edt_item.setText("");
+        }
+        else {
+            itens.set(0, edt_item.getText().toString());
+            adapter.notifyDataSetChanged();
         }
     }
 
-    private void removeView() {
-        if (view.getParent() != null) {
-            ((ViewGroup) view.getParent()).removeView(view);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
         }
+
+        return super.onOptionsItemSelected(item);
     }
 }
