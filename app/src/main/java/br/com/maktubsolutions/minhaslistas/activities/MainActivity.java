@@ -1,5 +1,6 @@
 package br.com.maktubsolutions.minhaslistas.activities;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -74,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         firebaseAuth.addAuthStateListener(authStateListener);
         databaseReference = LibraryClass.getFirebase();
 
-
         initViews();
         initDialog();
     }
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new RecyclerAdapter(listas);
+        adapter = new RecyclerAdapter(this, listas);
         recyclerView.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();
@@ -166,6 +166,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             add = false;
                             if (!edt_listas.getText().toString().isEmpty()) {
                                 adapter.addItem(edt_listas.getText().toString());
+                                Intent intent = new Intent(getApplicationContext(), ListaActivity.class);
+                                startActivity(intent);
                             }
                             dialog.dismiss();
                         } else {

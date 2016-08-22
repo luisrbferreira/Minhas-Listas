@@ -43,4 +43,5 @@
     <string name="cadastro_activity">Cadastro</string>
     <string name="botao_cadastrar">Cadastrar</string>
     <string name="logout">Sair</string>
+    <string name="adicionar_item">Adicionar Item</string>
 </resources>
