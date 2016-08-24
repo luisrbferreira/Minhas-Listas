@@ -49,6 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 } else {
                     if (deriva) {
                         Intent intent = new Intent(view.getContext(), ListaActivity.class);
+                        intent.putExtra("nomeLista", viewHolder.name.getText());
                         context.startActivity(intent);
                     }
                 }

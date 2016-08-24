@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private DatabaseReference databaseReference;
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
-    private DatabaseReference listaReference;
 
     private ArrayList listas = new ArrayList<>();
     private RecyclerAdapter adapter;
@@ -165,10 +164,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         if (add) {
                             add = false;
                             if (!edt_listas.getText().toString().isEmpty()) {
-                                adapter.addItem(edt_listas.getText().toString());
-                                databaseReference.child("users").child(firebaseAuth.getCurrentUser().getUid()).child("listas").child(edt_listas.getText().toString()).setValue(edt_listas.getText().toString());
-                                Intent intent = new Intent(getApplicationContext(), ListaActivity.class);
-                                startActivity(intent);
+                                String uid = firebaseAuth.getCurrentUser().getUid();
+                                String nomeLista = edt_listas.getText().toString();
+
+                                if (!nomeLista.isEmpty()) {
+                                    adapter.addItem(edt_listas.getText().toString());
+                                    databaseReference.child("users").child(uid).child("listas").push().setValue(nomeLista);
+                                    Intent intent = new Intent(getApplicationContext(), ListaActivity.class);
+                                    intent.putExtra("nomeLista", nomeLista);
+                                    startActivity(intent);
+                                }
                             }
                             dialog.dismiss();
                         } else {

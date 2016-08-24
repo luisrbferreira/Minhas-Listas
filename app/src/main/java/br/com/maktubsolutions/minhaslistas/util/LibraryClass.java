@@ -10,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by luis.ferreira on 09/06/2016.
  */
 public final class LibraryClass {
+
     public static String PREF = "br.com.maktubsolutions.minhaslistas.PREF";
     private static DatabaseReference firebase;
 
