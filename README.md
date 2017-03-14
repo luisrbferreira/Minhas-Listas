@@ -1,9 +1,9 @@
 # Minhas-Listas
-# Criação de um APP Android para criação de listas de compras utilizando Firebase e outras tecnologias, apenas a título de aprendizado. 
+#### Criação de um APP Android para criação de listas de compras utilizando Firebase e outras tecnologias, apenas a título de aprendizado. 
 
-### [Em construção]!
+#### [Em construção]!
 
-# Algumas implementações já feitas:
+#### Algumas implementações já feitas:
 
 - Login e Cadastro de usuário no APP utilizando Firebase;
 
